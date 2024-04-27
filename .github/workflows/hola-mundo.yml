@@ -1,0 +1,17 @@
+name: Run hola-mundo.js
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v2
+
+      - name: Ejecutar hola-mundo.js
+        run: node hola-mundo.js
