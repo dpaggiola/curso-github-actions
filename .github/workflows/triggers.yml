@@ -1,0 +1,30 @@
+name: Triggers
+run-name: Step 2 Platzi Course
+
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+    paths:
+      - '**.js'
+  issues:
+    types:
+      - opened
+      - edited
+      - labeled
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Ejecutar hola-mundo.js
+        run: node hola-mundo.js

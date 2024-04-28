@@ -1,0 +1,18 @@
+name: Varables
+run-name: Step 5 of Platzi Course
+
+on: workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Sunday
+
+jobs:
+  sayHello-variables:
+    runs-on: ubuntu-latest
+    env: 
+      HELLO: "Hello"
+    steps:
+      - name: Say Hello
+        run: echo "$HELLO, $NAME. Today is $DAY_OF_WEEK. "
+        env:
+          NAME: "Daniel"

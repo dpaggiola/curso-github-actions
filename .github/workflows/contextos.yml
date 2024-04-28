@@ -1,0 +1,11 @@
+name: Context
+run-name: Step 4 Platzi Course
+
+on: push
+
+jobs:
+  check-main:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploy on the $GITHUB_REF branch"
