@@ -1,0 +1,32 @@
+name: Expressions
+run-name: Step 3 Platzi Course
+
+on:
+  workflow_dispatch:
+    inputs:
+      age:
+        description: 'Age'
+        required: true
+        type: number
+        default: 18
+      name:
+        description: 'name'
+        required: true
+        default: 'Daniel'
+        type: string
+
+jobs:
+  major:
+    if : ${{ github.event.inputs.age >= 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script major
+        run: echo "{{ inputs.name }} is major"
+
+  minor:
+    if : ${{ github.event.inputs.age < 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script minor
+        run: echo "{{ inputs.name }} is minor"
+
